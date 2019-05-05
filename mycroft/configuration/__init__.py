@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .config import Configuration, LocalConf, RemoteConf
+from .config import Configuration, LocalConf
 from .locations import SYSTEM_CONFIG, USER_CONFIG
 
 

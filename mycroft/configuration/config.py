@@ -206,9 +206,7 @@ class Configuration:
             Returns: merged dict of all configuration files
         """
         if not configs:
-            configs = [LocalConf(DEFAULT_CONFIG), RemoteConf(),
-                       LocalConf(SYSTEM_CONFIG), LocalConf(USER_CONFIG),
-                       Configuration.__patch]
+            configs = [LocalConf(DEFAULT_CONFIG),LocalConf(SYSTEM_CONFIG), LocalConf(USER_CONFIG),Configuration.__patch]
         else:
             # Handle strings in stack
             for index, item in enumerate(configs):
