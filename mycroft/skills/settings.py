@@ -65,7 +65,7 @@ from threading import Timer
 from os.path import isfile, join, expanduser
 from requests.exceptions import RequestException
 
-from mycroft.api import DeviceApi, is_paired
+#from mycroft.api import DeviceApi, is_paired
 from mycroft.util.log import LOG
 from mycroft.configuration import ConfigurationManager
 
@@ -87,7 +87,7 @@ class SkillSettings(dict):
         # This is set to true in core.py after skill init
         self.allow_overwrite = False
 
-        self.api = DeviceApi()
+        #self.api = DeviceApi()
         self.config = ConfigurationManager.get()
         self.name = name
         # set file paths
@@ -141,8 +141,8 @@ class SkillSettings(dict):
         if not settings_meta:
             return
 
-        if not is_paired():
-            return
+        # if not is_paired():
+        #     return
 
         self._device_identity = self.api.identity.uuid
         self._api_path = "/" + self._device_identity + "/skill"
@@ -386,10 +386,9 @@ class SkillSettings(dict):
             TODO: implement as websocket
         """
         original = hash(str(self))
-        try:
-            if not is_paired():
-                pass
-            elif not self._complete_intialization:
+
+        try: 
+            if not self._complete_intialization:
                 self.initialize_remote_settings()
             else:
                 self.update_remote()

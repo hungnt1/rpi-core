@@ -123,8 +123,8 @@ def check_connection():
             bus.wait_for_response(Message('system.ntp.sync'),
                                   'system.ntp.sync.complete', 15)
 
-        if not is_paired():
-            try_update_system(platform)
+        # if not is_paired():
+        #     try_update_system(platform)
 
         # Check if the time skewed significantly.  If so, reboot
         skew = abs((time.monotonic() - start_ticks) -
@@ -156,7 +156,7 @@ def check_connection():
         enclosure.mouth_text(dialog.get("message_loading.skills"))
 
         bus.emit(Message('mycroft.internet.connected'))
-        # check for pairing, if not automatically start pairing
+        #check for pairing, if not automatically start pairing
         # try:
         #     if not is_paired(ignore_errors=False):
         #         payload = {

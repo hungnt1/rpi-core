@@ -32,7 +32,7 @@ from os.path import join, abspath, dirname, basename, exists
 from threading import Event, Timer
 
 from mycroft import dialog
-from mycroft.api import DeviceApi
+#from mycroft.api import DeviceApi
 from mycroft.audio import wait_while_speaking
 from mycroft.enclosure.api import EnclosureAPI
 from mycroft.configuration import Configuration
@@ -801,7 +801,7 @@ class MycroftSkill:
             body  (str): HTML body of email. This supports
                          simple HTML like bold and italics
         """
-        DeviceApi().send_email(title, body, basename(self.root_dir))
+        # DeviceApi().send_email(title, body, basename(self.root_dir))
 
     def make_active(self):
         """ Bump skill to active_skill list in intent_service
